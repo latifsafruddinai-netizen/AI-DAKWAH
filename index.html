@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LatifSafruddinAI Dakwah - AI Cerdas, Dakwah Berkualitas, Manusia Berakhlak</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,391 +12,656 @@
             theme: {
                 extend: {
                     colors: {
-                        darkbg: '#0B132B',
-                        darkcard: '#1C2541',
-                        gold: {
-                            400: '#FACC15',
-                            500: '#EAB308',
-                            600: '#CA8A04',
-                        },
-                        islamicgreen: {
+                        brand: {
+                            50: '#eefbfa',
+                            100: '#d5f5f3',
+                            500: '#10b981',
                             600: '#059669',
                             700: '#047857',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B132B;
-            color: #F1F5F9;
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FDE047 0%, #CA8A04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-border {
-            border-color: rgba(234, 179, 8, 0.3);
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-gold-500 selection:text-darkbg">
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col selection:bg-gold-500 selection:text-gray-950">
 
-    <!-- TOP ECOSYSTEM LINKS BAR -->
-    <div class="bg-darkcard border-b gold-border py-2 px-4 text-xs">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-4 text-gray-300">
-            <span class="text-gold-400 font-semibold"><i class="fa-solid fa-globe mr-1"></i> Jaringan Ekosistem:</span>
-            <a href="https://latifsafruddin.online/" target="_blank" class="hover:text-gold-400 transition">latifsafruddin.online</a>
-            <span class="text-gray-600">|</span>
-            <a href="https://lynk.id/latifsafruddin" target="_blank" class="hover:text-gold-400 transition">lynk.id/latifsafruddin</a>
-            <span class="text-gray-600">|</span>
-            <a href="https://latifsafruddin.my.id/" target="_blank" class="hover:text-gold-400 transition">latifsafruddin.my.id</a>
-            <span class="text-gray-600">|</span>
-            <a href="https://notoatiresikiati-ops.github.io/NOTOATIKU/" target="_blank" class="hover:text-gold-400 transition">Noto Atiku</a>
-            <span class="text-gray-600">|</span>
-            <a href="http://resikresikmasjid.my.id/" target="_blank" class="hover:text-gold-400 transition">Resik Masjid</a>
-        </div>
-    </div>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-emerald-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('home')">
+                    <img src="LOGO.png" alt="LatifSafruddinAI Logo" class="h-12 w-12 rounded-xl object-cover border border-gold-500/50 shadow-md shadow-gold-500/20 bg-gray-950 p-0.5" onerror="this.src='https://placehold.co/100x100/111827/eab308?text=LS'">
+                    <div>
+                        <span class="text-base sm:text-lg font-bold bg-gradient-to-r from-gold-400 via-gold-500 to-amber-200 bg-clip-text text-transparent block">LatifSafruddinAI Dakwah</span>
+                        <span class="text-[9px] sm:text-[10px] tracking-widest text-emerald-400 uppercase block font-medium">AI Cerdas • Dakwah Berkualitas</span>
+                    </div>
+                </div>
 
-    <!-- NAVBAR -->
-    <header class="sticky top-0 z-50 bg-darkbg/90 backdrop-blur-md border-b gold-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('beranda')">
-                <span class="text-xl font-bold text-gold-400">LatifSafruddinAI</span>
-            </div>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-5 items-center text-sm font-medium">
+                    <button onclick="navigate('home')" class="text-gray-300 hover:text-gold-400 transition-colors">Beranda</button>
+                    <button onclick="navigate('tentang')" class="text-gray-300 hover:text-gold-400 transition-colors">Tentang Kami</button>
+                    <button onclick="navigate('tanya')" class="text-gray-300 hover:text-gold-400 transition-colors">Tanya AI</button>
+                    <button onclick="navigate('quran')" class="text-gray-300 hover:text-gold-400 transition-colors">Qur'an & Hadis</button>
+                    <button onclick="navigate('cek')" class="text-gray-300 hover:text-gold-400 transition-colors">Cek Dalil</button>
+                    <button onclick="navigate('konten')" class="text-gray-300 hover:text-gold-400 transition-colors">Buat Konten</button>
+                    <a href="https://anbchannel.com/video" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center">Dakwah Suara <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
+                    <a href="https://sekolahanb.com/" target="_blank" class="bg-gradient-to-r from-gold-500 to-amber-600 text-gray-950 font-semibold px-4 py-2 rounded-xl shadow hover:opacity-95 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-user-graduate"></i> Konsultasi Ustaz
+                    </a>
+                </nav>
 
-            <!-- Desktop Nav Menu -->
-            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium">
-                <button onclick="showSection('beranda')" class="nav-link text-gold-400 transition hover:text-gold-300">Beranda</button>
-                <button onclick="showSection('tentang')" class="nav-link text-gray-300 transition hover:text-gold-400">Tentang Kami</button>
-                <button onclick="showSection('tanya-ai')" class="nav-link text-gray-300 transition hover:text-gold-400">Tanya AI</button>
-                <button onclick="showSection('quran-hadis')" class="nav-link text-gray-300 transition hover:text-gold-400">Qur'an & Hadis</button>
-                <button onclick="showSection('cek-dalil')" class="nav-link text-gray-300 transition hover:text-gold-400">Cek Dalil</button>
-                <button onclick="showSection('buat-konten')" class="nav-link text-gray-300 transition hover:text-gold-400">Buat Konten</button>
-            </nav>
-
-            <div class="hidden md:flex items-center">
-                <a href="https://sekolahanb.com/" target="_blank" class="bg-gradient-to-r from-gold-500 to-gold-600 text-darkbg font-bold px-4 py-2 rounded-xl shadow-lg hover:opacity-95 transition flex items-center gap-2 text-sm">
-                    <i class="fa-solid fa-graduation-cap"></i> Konsultasi Ustaz
-                </a>
-            </div>
-
-            <div class="lg:hidden flex items-center">
-                <button onclick="toggleMobileMenu()" class="text-gold-400 text-2xl focus:outline-none">
-                    <i class="fa-solid fa-bars" id="menu-icon"></i>
-                </button>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2 text-xl focus:outline-none">
+                        <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-darkcard border-b gold-border px-4 pt-2 pb-4 space-y-2">
-            <button onclick="showSection('beranda'); toggleMobileMenu();" class="block w-full text-left py-2 text-gold-400 font-medium">Beranda</button>
-            <button onclick="showSection('tentang'); toggleMobileMenu();" class="block w-full text-left py-2 text-gray-300">Tentang Kami</button>
-            <button onclick="showSection('tanya-ai'); toggleMobileMenu();" class="block w-full text-left py-2 text-gray-300">Tanya AI</button>
-            <button onclick="showSection('quran-hadis'); toggleMobileMenu();" class="block w-full text-left py-2 text-gray-300">Qur'an & Hadis</button>
-            <button onclick="showSection('cek-dalil'); toggleMobileMenu();" class="block w-full text-left py-2 text-gray-300">Cek Dalil</button>
-            <button onclick="showSection('buat-konten'); toggleMobileMenu();" class="block w-full text-left py-2 text-gray-300">Buat Konten</button>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-emerald-900/40 px-4 pt-3 pb-5 space-y-2.5 shadow-xl absolute w-full">
+            <button onclick="navigate('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Beranda</button>
+            <button onclick="navigate('tentang'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Tentang Kami</button>
+            <button onclick="navigate('tanya'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Tanya AI</button>
+            <button onclick="navigate('quran'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Qur'an & Hadis</button>
+            <button onclick="navigate('cek'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Cek Dalil</button>
+            <button onclick="navigate('konten'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gold-400 hover:bg-gray-800">Buat Konten</button>
+            <a href="https://anbchannel.com/video" target="_blank" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-emerald-400 hover:bg-gray-800">Dakwah Suara</a>
+            <a href="https://sekolahanb.com/" target="_blank" class="block w-full text-center mt-2 bg-gradient-to-r from-gold-500 to-amber-600 text-gray-950 font-semibold px-3 py-2 rounded-xl">Konsultasi Ustaz</a>
         </div>
     </header>
 
-    <!-- MAIN CONTAINER -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
-        <!-- SECTION: BERANDA -->
-        <section id="sec-beranda" class="space-y-12">
-            <div class="relative bg-gradient-to-br from-darkcard to-islamicgreen-700/20 border gold-border rounded-3xl p-8 sm:p-12 shadow-2xl overflow-hidden">
-                <div class="relative z-10 max-w-2xl space-y-6">
-                    <span class="inline-flex items-center gap-2 bg-gold-500/10 text-gold-400 border gold-border px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase">
-                        <i class="fa-solid fa-sparkles"></i> Platform AI Terverifikasi Umat
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
-                        LatifSafruddin<span class="gold-gradient-text">AI Dakwah</span>
-                    </h1>
-                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
-                        AI Cerdas • Dakwah Berkualitas • Manusia Berakhlak. Asisten cerdas untuk mencari rujukan, ayat, hadis, dan menyebarkan kebaikan dengan sumber terverifikasi.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <button onclick="showSection('tanya-ai')" class="bg-gold-500 hover:bg-gold-600 text-darkbg font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
-                            <i class="fa-solid fa-robot"></i> Mulai Tanya AI
-                        </button>
-                        <button onclick="showSection('quran-hadis')" class="bg-darkbg border gold-border text-gold-400 hover:bg-darkcard px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2">
-                            <i class="fa-solid fa-book-quran"></i> Cari Qur'an & Hadis
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dashboard Feature Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div onclick="showSection('tanya-ai')" class="bg-darkcard border gold-border rounded-2xl p-6 cursor-pointer hover:border-gold-500 transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-400 text-xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">🤖 Tanya AI Dakwah</h3>
-                    <p class="text-gray-400 text-sm">Konsultasikan persoalan agama dan dapatkan jawaban lengkap dengan dalil dan rujukan.</p>
-                </div>
-
-                <div onclick="showSection('quran-hadis')" class="bg-darkcard border gold-border rounded-2xl p-6 cursor-pointer hover:border-gold-500 transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-islamicgreen-600/25 flex items-center justify-center text-islamicgreen-600 text-xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-book-quran"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">📖 Qur'an & Hadis</h3>
-                    <p class="text-gray-400 text-sm">Pencarian ayat tematik, terjemahan resmi, serta hadis terverifikasi dari sumber sahih.</p>
-                </div>
-
-                <div onclick="showSection('cek-dalil')" class="bg-darkcard border gold-border rounded-2xl p-6 cursor-pointer hover:border-gold-500 transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-400 text-xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">🔎 Cek Dalil</h3>
-                    <p class="text-gray-400 text-sm">Periksa keabsahan klaim keagamaan atau kutipan hadis yang beredar di masyarakat.</p>
-                </div>
-
-                <div onclick="showSection('buat-konten')" class="bg-darkcard border gold-border rounded-2xl p-6 cursor-pointer hover:border-gold-500 transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-islamicgreen-600/25 flex items-center justify-center text-islamicgreen-600 text-xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">✍️ Pembuat Konten Dakwah</h3>
-                    <p class="text-gray-400 text-sm">Hasilkan caption media sosial dan artikel dakwah islami secara instan.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: TENTANG KAMI -->
-        <section id="sec-tentang" class="hidden space-y-8">
-            <div class="bg-darkcard border gold-border rounded-3xl p-8 sm:p-12 shadow-2xl">
-                <div class="space-y-6 max-w-3xl">
-                    <span class="text-gold-400 font-bold uppercase tracking-wider text-xs bg-gold-500/10 px-3 py-1 rounded-full border gold-border">Filosofi Platform</span>
-                    <h2 class="text-3xl font-extrabold text-white">LatifSafruddinAI Dakwah</h2>
-                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                        LatifSafruddinAI Dakwah hadir sebagai sebuah gagasan yang memadukan kecerdasan buatan (AI), dakwah, dan pembentukan akhlak manusia di tengah perkembangan teknologi.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: TANYA AI -->
-        <section id="sec-tanya-ai" class="hidden space-y-6">
-            <div class="bg-darkcard border gold-border rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <h2 class="text-xl font-bold text-white mb-2">Tanya AI Dakwah</h2>
-                <p class="text-xs text-gray-400 mb-6">Ajukan pertanyaan seputar hukum islam, ibadah, atau akhlak.</p>
-                <div class="space-y-4">
-                    <textarea id="ai-prompt" rows="4" class="w-full bg-darkbg border gold-border rounded-xl p-4 text-white text-sm focus:outline-none focus:border-gold-400 placeholder-gray-500" placeholder="Contoh: Apa hukumnya menjamak shalat karena perjalanan kerja?"></textarea>
-                    <button onclick="handleAskAI()" class="bg-gold-500 hover:bg-gold-600 text-darkbg font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-paper-plane"></i> Kirim Pertanyaan
-                    </button>
-                </div>
-                <div id="ai-result-container" class="mt-8 hidden">
-                    <h3 class="text-sm font-semibold text-gold-400 mb-2 uppercase tracking-wider">Hasil Analisis AI:</h3>
-                    <div id="ai-result-content" class="bg-darkbg border gold-border rounded-2xl p-6 text-sm text-gray-200 leading-relaxed space-y-3"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: QUR'AN & HADIS -->
-        <section id="sec-quran-hadis" class="hidden space-y-6">
-            <div class="bg-darkcard border gold-border rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <h2 class="text-xl font-bold text-white mb-2">Pencarian Qur'an & Hadis Terverifikasi</h2>
-                <p class="text-xs text-gray-400 mb-6">Cari ayat berdasarkan tema atau kata kunci secara dinamis.</p>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="text" id="qh-query" class="flex-grow bg-darkbg border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 placeholder-gray-500" placeholder="Masukkan tema (contoh: Sabar, Ikhlas, Sedekah)...">
-                    <button onclick="handleSearchQH()" class="bg-islamicgreen-600 hover:bg-islamicgreen-700 text-white font-bold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-search"></i> Cari
-                    </button>
-                </div>
-                <div id="qh-result-container" class="mt-8 hidden">
-                    <h3 class="text-sm font-semibold text-gold-400 mb-2 uppercase tracking-wider">Hasil Penelusuran Ayat & Hadis:</h3>
-                    <div id="qh-result-content" class="bg-darkbg border gold-border rounded-2xl p-6 text-sm text-gray-200 leading-relaxed space-y-3"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: CEK DALIL -->
-        <section id="sec-cek-dalil" class="hidden space-y-6">
-            <div class="bg-darkcard border gold-border rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <h2 class="text-xl font-bold text-white mb-2">Cek Keabsahan Dalil / Klaim Agama</h2>
-                <p class="text-xs text-gray-400 mb-6">Periksa kutipan hadis atau klaim keagamaan yang beredar.</p>
-                <div class="space-y-4">
-                    <textarea id="dalil-prompt" rows="4" class="w-full bg-darkbg border gold-border rounded-xl p-4 text-white text-sm focus:outline-none focus:border-gold-400 placeholder-gray-500" placeholder="Masukkan kutipan hadis atau klaim..."></textarea>
-                    <button onclick="handleCheckDalil()" class="bg-gold-500 hover:bg-gold-600 text-darkbg font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-shield-check"></i> Verifikasi Dalil
-                    </button>
-                </div>
-                <div id="dalil-result-container" class="mt-8 hidden">
-                    <h3 class="text-sm font-semibold text-gold-400 mb-2 uppercase tracking-wider">Hasil Verifikasi:</h3>
-                    <div id="dalil-result-content" class="bg-darkbg border gold-border rounded-2xl p-6 text-sm text-gray-200 leading-relaxed space-y-3"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: BUAT KONTEN -->
-        <section id="sec-buat-konten" class="hidden space-y-6">
-            <div class="bg-darkcard border gold-border rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <h2 class="text-xl font-bold text-white mb-2">Pembuat Konten Dakwah</h2>
-                <p class="text-xs text-gray-400 mb-6">Buat caption Instagram atau naskah video pendek.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-300 mb-1">Format Output</label>
-                        <select id="konten-type" class="w-full bg-darkbg border gold-border rounded-xl p-3 text-white text-sm focus:outline-none">
-                            <option value="Caption Instagram / TikTok">Caption Instagram / TikTok</option>
-                            <option value="Naskah Video Pendek">Naskah Video Pendek (Reels / Shorts)</option>
-                            <option value="Artikel Dakwah">Artikel Dakwah Singkat</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-300 mb-1">Topik atau Tema Konten</label>
-                        <input type="text" id="konten-topic" class="w-full bg-darkbg border gold-border rounded-xl p-3 text-white text-sm focus:outline-none placeholder-gray-500" placeholder="Contoh: SEDEKAH">
-                    </div>
-                </div>
-                <button onclick="handleMakeContent()" class="bg-islamicgreen-600 hover:bg-islamicgreen-700 text-white font-bold px-6 py-3 rounded-xl transition text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Buat Konten
-                </button>
-                <div id="konten-result-container" class="mt-8 hidden">
-                    <h3 class="text-sm font-semibold text-gold-400 mb-2 uppercase tracking-wider">Hasil Pembuatan Konten:</h3>
-                    <div id="konten-result-content" class="bg-darkbg border gold-border rounded-2xl p-6 text-sm text-gray-200 leading-relaxed whitespace-pre-line"></div>
-                </div>
-            </div>
-        </section>
-
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8" id="main-content">
+        <!-- Dynamic views injected here -->
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-darkcard border-t gold-border py-8 mt-16 text-center text-xs text-gray-400 space-y-2">
-        <p class="text-gold-400 font-bold tracking-widest text-sm">AI CERDAS • DAKWAH BERKUALITAS • MANUSIA BERAKHLAK</p>
-        <p>&copy; 2026 LatifSafruddinAI Dakwah. Platform AI Terverifikasi untuk Umat.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-emerald-900/40 text-gray-400 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm space-y-3">
+            <p class="text-gold-400 font-semibold tracking-wider">AI CERDAS • DAKWAH BERKUALITAS • MANUSIA BERAKHLAK</p>
+            <p>&copy; 2026 LatifSafruddinAI Dakwah. Platform AI Terverifikasi untuk Umat.</p>
+        </div>
     </footer>
 
-    <!-- JAVASCRIPT & DINAMIS AI INTEGRATION -->
+    <!-- JavaScript Application Logic -->
     <script>
-        // Kunci API Anda yang sudah terpasang
-        const GEMINI_API_KEY = "AQ.Ab8RN6JuPqtbZ7tHpfWhPh74wL1hukqgBclrcZ6R67Z-1-iG3A";
+        const DAKWAH_SYSTEM_PROMPT = "Anda adalah asisten AI dakwah resmi pada platform LatifSafruddinAI Dakwah. Anda tidak boleh mengarang ayat, hadis, nomor hadis, nama kitab, atau pendapat ulama. Setiap klaim keagamaan harus memiliki sumber yang dapat ditelusuri. Format jawaban Anda harus terstruktur: 1. Jawaban Utama, 2. Dalil / Rujukan, 3. Sumber/Kitab, 4. Penjelasan, 5. Catatan jika terdapat perbedaan pendapat atau khilafiyah. Jika sumber tidak pasti, katakan informasi belum dapat diverifikasi dan sarankan berkonsultasi kepada ustaz kompeten.";
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
+            const icon = document.getElementById('mobile-menu-icon');
             menu.classList.toggle('hidden');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
-        }
-
-        function showSection(sectionId) {
-            ['beranda', 'tentang', 'tanya-ai', 'quran-hadis', 'cek-dalil', 'buat-konten'].forEach(sec => {
-                const el = document.getElementById('sec-' + sec);
-                if (el) el.classList.add('hidden');
-            });
-            const target = document.getElementById('sec-' + sectionId);
-            if (target) {
-                target.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(menu.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-bars";
+            } else {
+                icon.className = "fa-solid fa-xmark";
             }
         }
 
-        // Fungsi Universal Pemanggil API Gemini (Google AI Studio) secara Dinamis
-        async function panggilAI(promptText) {
-            if (!GEMINI_API_KEY) {
-                return "Mohon masukkan Gemini API Key yang aktif.";
-            }
+        function navigate(view) {
+            const main = document.getElementById('main-content');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            const systemPrompt = "Anda adalah asisten AI dakwah untuk platform LatifSafruddinAI Dakwah. Berikan jawaban yang terstruktur dengan format: Jawaban -> Dalil -> Rujukan/Sumber -> Catatan.";
-            
-            // Endpoint resmi Google AI Studio menggunakan parameter ?key=
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-            
+            if (view === 'home') {
+                renderHome(main);
+            } else if (view === 'tentang') {
+                renderTentang(main);
+            } else if (view === 'tanya') {
+                renderTanyaAI(main);
+            } else if (view === 'quran') {
+                renderQuranHadis(main);
+            } else if (view === 'cek') {
+                renderCekDalil(main);
+            } else if (view === 'konten') {
+                renderBuatKonten(main);
+            }
+        }
+
+        // Home View with Official Uploaded Logo and Ecosystem Links Bar above AI Cerdas
+        function renderHome(container) {
+            container.innerHTML = `
+                <div class="space-y-12">
+                    <!-- Ecosystem Links Bar Above AI Cerdas -->
+                    <div class="bg-gray-900/90 border border-emerald-900/50 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+                        <p class="text-xs font-semibold text-gold-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-globe text-emerald-400"></i> Tautan Resmi Ekosistem Digital LatifSafruddin
+                        </p>
+                        <div class="flex flex-wrap gap-2.5">
+                            <a href="https://latifsafruddin.online/" target="_blank" class="text-xs bg-gray-950 hover:bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-link text-[10px] text-gold-400"></i> latifsafruddin.online
+                            </a>
+                            <a href="https://lynk.id/latifsafruddin" target="_blank" class="text-xs bg-gray-950 hover:bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-link text-[10px] text-gold-400"></i> lynk.id/latifsafruddin
+                            </a>
+                            <a href="https://latifsafruddin.my.id/" target="_blank" class="text-xs bg-gray-950 hover:bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-link text-[10px] text-gold-400"></i> latifsafruddin.my.id
+                            </a>
+                            <a href="https://notoatiresikiati-ops.github.io/NOTOATIKU/" target="_blank" class="text-xs bg-gray-950 hover:bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-link text-[10px] text-gold-400"></i> NOTOATIKU
+                            </a>
+                            <a href="http://resikresikmasjid.my.id/" target="_blank" class="text-xs bg-gray-950 hover:bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-link text-[10px] text-gold-400"></i> resikresikmasjid.my.id
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Section -->
+                    <div class="relative bg-gradient-to-br from-gray-900 via-emerald-950/40 to-gray-900 border border-emerald-900/50 rounded-3xl p-6 sm:p-12 shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center gap-8">
+                        <div class="space-y-6 flex-1 text-center lg:text-left">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                <i class="fa-solid fa-shield-halved"></i> Platform Dakwah Berbasis AI & Terverifikasi
+                            </span>
+                            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                                LatifSafruddin<span class="text-gold-400">AI Dakwah</span>
+                            </h1>
+                            <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                                AI Cerdas • Dakwah Berkualitas • Manusia Berakhlak. Solusi digital pintar untuk mencari referensi keagamaan, dalil terverifikasi, dan konten dakwah yang mencerahkan.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                                <button onclick="navigate('tanya')" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:opacity-95 text-gray-950 font-bold px-6 py-3 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-robot"></i> Mulai Tanya AI
+                                </button>
+                                <button onclick="navigate('tentang')" class="bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold px-6 py-3 rounded-xl border border-gray-700 transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-book-open"></i> Tentang Kami
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-64 sm:w-72 lg:w-80 flex-shrink-0">
+                            <img src="LOGO.png" alt="LatifSafruddinAI Logo" class="rounded-2xl shadow-2xl border-2 border-gold-500/50 w-full object-cover bg-gray-950 p-2" onerror="this.src='https://placehold.co/400x400/111827/eab308?text=LatifSafruddinAI'">
+                        </div>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div>
+                        <div class="text-center mb-10">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white">Fitur Ekosistem Dakwah V1</h2>
+                            <p class="text-gray-400 text-sm mt-2">Pilih menu di bawah untuk mulai mengeksplorasi layanan cerdas kami</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- 1. Tanya AI -->
+                            <div onclick="navigate('tanya')" class="bg-gray-900 border border-gray-800 hover:border-gold-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md hover:shadow-gold-500/5">
+                                <div class="w-12 h-12 bg-gold-500/10 text-gold-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1">Tanya AI Dakwah</h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Ajukan pertanyaan keagamaan dengan rujukan ayat, hadis, dan penjelasan yang beretika.</p>
+                            </div>
+
+                            <!-- 2. Qur'an & Hadis -->
+                            <div onclick="navigate('quran')" class="bg-gray-900 border border-gray-800 hover:border-emerald-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md hover:shadow-emerald-500/5">
+                                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-book-quran"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1">Qur'an & Hadis</h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Pencarian ayat tematik dan hadis terverifikasi beserta terjemahan resmi.</p>
+                            </div>
+
+                            <!-- 3. Cek Dalil -->
+                            <div onclick="navigate('cek')" class="bg-gray-900 border border-gray-800 hover:border-amber-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md hover:shadow-amber-500/5">
+                                <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1">Cek Dalil</h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Memeriksa kevalidan klaim agama, kutipan hadis, atau informasi yang beredar.</p>
+                            </div>
+
+                            <!-- 4. Buat Konten -->
+                            <div onclick="navigate('konten')" class="bg-gray-900 border border-gray-800 hover:border-blue-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md hover:shadow-blue-500/5">
+                                <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1">Buat Konten Dakwah</h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Generator caption media sosial, artikel Islami, dan skrip video dakwah.</p>
+                            </div>
+
+                            <!-- 5. Dakwah Suara (Direct Link) -->
+                            <a href="https://anbchannel.com/video" target="_blank" class="bg-gray-900 border border-gray-800 hover:border-emerald-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md block text-left">
+                                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-microphone-lines"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1 flex items-center">Dakwah Suara <i class="fa-solid fa-external-link-alt text-xs ml-2 text-emerald-400"></i></h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Dengarkan audio dan video kajian pilihan langsung di ANB Channel.</p>
+                            </a>
+
+                            <!-- 6. Konsultasi Ustaz (Direct Link) -->
+                            <a href="https://sekolahanb.com/" target="_blank" class="bg-gray-900 border border-gray-800 hover:border-gold-500/50 p-6 rounded-2xl cursor-pointer transition-all group shadow-md block text-left">
+                                <div class="w-12 h-12 bg-gold-500/10 text-gold-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white mb-1 flex items-center">Konsultasi Ustaz <i class="fa-solid fa-external-link-alt text-xs ml-2 text-gold-400"></i></h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">Diskusi langsung dengan para ustaz dan ahli kompeten di Sekolah ANB.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Tentang Kami View with Image on Right, Text on Left
+        function renderTentang(container) {
+            container.innerHTML = `
+                <div class="max-w-5xl mx-auto space-y-8 bg-gray-900 border border-emerald-900/40 p-6 sm:p-10 rounded-3xl shadow-xl">
+                    <div class="text-center space-y-3">
+                        <h1 class="text-3xl font-extrabold text-white">Tentang LatifSafruddinAI Dakwah</h1>
+                        <p class="text-gold-400 font-semibold tracking-wide">AI Cerdas • Dakwah Berkualitas • Manusia Berakhlak</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+                        <div class="lg:col-span-7 space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                <strong>LatifSafruddinAI Dakwah</strong> hadir sebagai sebuah gagasan yang memadukan kecerdasan buatan (AI), dakwah, dan pembentukan akhlak manusia di tengah perkembangan teknologi yang semakin pesat.
+                            </p>
+                            <p>
+                                Logo dengan warna emas menggambarkan nilai kemuliaan, kebermanfaatan, kepercayaan, dan cita-cita untuk menghadirkan teknologi yang tidak hanya cerdas, tetapi juga bernilai dan membawa kebaikan.
+                            </p>
+                            <p>
+                                Tulisan <strong>“AI DAKWAH”</strong> menjadi identitas utama bahwa teknologi kecerdasan buatan dapat dimanfaatkan sebagai sarana untuk menyebarkan pengetahuan, nilai-nilai kebaikan, inspirasi, dan pesan dakwah secara lebih luas, kreatif, dan mudah diterima oleh masyarakat.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-5 flex justify-center">
+                            <img src="LOGO.png" alt="Logo" class="rounded-2xl shadow-xl border-2 border-gold-500/40 w-64 h-64 object-cover bg-gray-950 p-2" onerror="this.src='https://placehold.co/400x400/111827/eab308?text=Logo+LS'">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed border-t border-gray-800 pt-6">
+                        <div class="bg-gray-950/80 border border-emerald-900/40 p-5 rounded-2xl space-y-3">
+                            <h3 class="font-bold text-gold-400">Makna Tagline Utama:</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                <li><strong>AI Cerdas</strong> berarti memanfaatkan teknologi secara bijak dan inovatif.</li>
+                                <li><strong>Dakwah Berkualitas</strong> berarti menghadirkan informasi dan pesan keagamaan yang edukatif, santun, dan memberikan manfaat.</li>
+                                <li><strong>Manusia Berakhlak</strong> menjadi tujuan akhirnya, karena kecanggihan teknologi tidak akan berarti tanpa manusia yang memiliki karakter, etika, dan akhlak yang baik.</li>
+                            </ul>
+                        </div>
+                        <p>
+                            LatifSafruddinAI Dakwah bukan sekadar tentang teknologi. Ini adalah sebuah gerakan untuk menjadikan AI sebagai alat kebaikan, membantu manusia belajar, berkarya, berdakwah, dan berbagi manfaat di era digital. Teknologinya boleh semakin cerdas, tetapi manusianya harus semakin berakhlak.
+                        </p>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button onclick="navigate('home')" class="bg-gray-800 hover:bg-gray-700 text-white font-medium px-6 py-2.5 rounded-xl border border-gray-700 transition-all">
+                            Kembali ke Beranda
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Tanya AI View (Fully Active Connected to Gemini AI)
+        function renderTanyaAI(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-gray-900 border border-emerald-900/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800">
+                            <div class="w-10 h-10 bg-gold-500/10 text-gold-400 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold text-white">Tanya AI Dakwah</h1>
+                                <p class="text-xs text-gray-400">Sistem cerdas berstandar rujukan terverifikasi</p>
+                            </div>
+                        </div>
+
+                        <!-- Chat Output Area -->
+                        <div id="chat-results" class="space-y-4 mb-6 min-h-[220px] max-h-[500px] overflow-y-auto pr-2">
+                            <div class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-4 text-gray-300 text-sm">
+                                <p class="font-semibold text-gold-400 mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Selamat Datang di Tanya AI</p>
+                                Silakan tanyakan masalah keagamaan, hukum Islam, atau pemahaman ayat/hadis. AI akan memberikan rujukan dalil serta catatan khilafiyah jika ada.
+                            </div>
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="space-y-3">
+                            <textarea id="user-prompt" rows="3" class="w-full bg-gray-950 border border-emerald-900/60 rounded-2xl p-4 text-white text-sm focus:outline-none focus:border-gold-500 placeholder-gray-500 resize-none" placeholder="Contoh: Apakah membaca Al-Qur'an melalui HP mendapatkan pahala?"></textarea>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">AI Dakwah menjunjung tinggi etika dan rujukan valid.</span>
+                                <button onclick="submitTanyaAI()" id="submit-btn" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:opacity-90 text-gray-950 font-bold px-6 py-2.5 rounded-xl shadow transition-all flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-paper-plane"></i> Kirim Pertanyaan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function submitTanyaAI() {
+            const promptInput = document.getElementById('user-prompt');
+            const chatResults = document.getElementById('chat-results');
+            const btn = document.getElementById('submit-btn');
+            const text = promptInput.value.trim();
+
+            if (!text) return;
+
+            chatResults.innerHTML += `
+                <div class="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 text-gray-100 text-sm ml-8">
+                    <p class="font-semibold text-gold-400 mb-1">Anda:</p>
+                    <p>${escapeHtml(text)}</p>
+                </div>
+            `;
+            promptInput.value = '';
+            chatResults.scrollTop = chatResults.scrollHeight;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Menyusun Jawaban...`;
+
+            const loadingId = 'loading-' + Date.now();
+            chatResults.innerHTML += `
+                <div id="${loadingId}" class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-4 text-gray-400 text-sm mr-8 flex items-center gap-2">
+                    <i class="fa-solid fa-robot animate-bounce text-gold-400"></i> AI sedang merujuk database & menyusun jawaban terverifikasi...
+                </div>
+            `;
+            chatResults.scrollTop = chatResults.scrollHeight;
+
             try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: { 
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        contents: [
-                            { role: "user", parts: [{ text: systemPrompt + "\n\nPertanyaan/Permintaan Pengguna: " + promptText }] }
-                        ]
-                    })
-                });
+                const response = await callGeminiAPI(text);
+                document.getElementById(loadingId).remove();
                 
-                const data = await response.json();
-                if (data.candidates && data.candidates[0].content) {
-                    return data.candidates[0].content.parts[0].text;
-                } else if (data.error) {
-                    return "Error dari Server AI: " + (data.error.message || JSON.stringify(data.error));
-                } else {
-                    return "Mohon maaf, respon dari server AI tidak valid.";
+                chatResults.innerHTML += `
+                    <div class="bg-gray-950 border border-gold-500/30 rounded-2xl p-4 text-gray-200 text-sm mr-8 space-y-2">
+                        <p class="font-bold text-gold-400 flex items-center gap-1.5"><i class="fa-solid fa-check-circle"></i> Jawaban & Rujukan AI:</p>
+                        <div class="whitespace-pre-line leading-relaxed">${escapeHtml(response)}</div>
+                    </div>
+                `;
+            } catch (err) {
+                document.getElementById(loadingId).remove();
+                chatResults.innerHTML += `
+                    <div class="bg-red-950/40 border border-red-800 rounded-2xl p-4 text-red-300 text-sm mr-8">
+                        Terjadi kendala koneksi atau kuota API. Silakan coba beberapa saat lagi.
+                    </div>
+                `;
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Kirim Pertanyaan`;
+            chatResults.scrollTop = chatResults.scrollHeight;
+        }
+
+        // Qur'an & Hadis View (Fully Active)
+        function renderQuranHadis(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-gray-900 border border-emerald-900/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800">
+                            <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-book-quran"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold text-white">Qur'an & Hadis Terverifikasi</h1>
+                                <p class="text-xs text-gray-400">Pencarian ayat tematik dan hadis pilihan</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex gap-2">
+                                <input type="text" id="quran-query" class="flex-grow bg-gray-950 border border-emerald-900/60 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 placeholder-gray-500" placeholder="Cari berdasarkan tema (contoh: sabar, ikhlas, shalat, rezeki)...">
+                                <button onclick="searchQuranHadis()" id="quran-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl shadow transition-all flex items-center gap-2 text-sm flex-shrink-0">
+                                    <i class="fa-solid fa-search"></i> Cari
+                                </button>
+                            </div>
+
+                            <div id="quran-results" class="space-y-4 pt-4">
+                                <div class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-5 text-gray-400 text-sm text-center">
+                                    Masukkan kata kunci atau tema di atas untuk menampilkan ayat dan hadis terkait berserta tafsir singkatnya.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function searchQuranHadis() {
+            const query = document.getElementById('quran-query').value.trim();
+            const resultsDiv = document.getElementById('quran-results');
+            const btn = document.getElementById('quran-btn');
+
+            if (!query) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i>`;
+            resultsDiv.innerHTML = `<div class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-5 text-gray-400 text-sm text-center">Mencari ayat dan hadis terverifikasi untuk tema "${escapeHtml(query)}"...</div>`;
+
+            try {
+                const prompt = `Carikan ayat Al-Qur'an dan hadis sahih yang berkaitan dengan tema: "${query}". Berikan teks Arab, terjemahan resmi, nama surat/nomor ayat atau perawi hadis, serta penjelasan singkat.`;
+                const response = await callGeminiAPI(prompt);
+
+                resultsDiv.innerHTML = `
+                    <div class="bg-gray-950 border border-emerald-500/30 rounded-2xl p-5 text-gray-200 text-sm space-y-3">
+                        <p class="font-bold text-emerald-400 flex items-center gap-1.5"><i class="fa-solid fa-book-bookmark"></i> Hasil Rujukan Tematik: "${escapeHtml(query)}"</p>
+                        <div class="whitespace-pre-line leading-relaxed">${escapeHtml(response)}</div>
+                    </div>
+                `;
+            } catch (err) {
+                resultsDiv.innerHTML = `<div class="bg-red-950/40 border border-red-800 rounded-2xl p-4 text-red-300 text-sm">Gagal mengambil data. Silakan coba lagi.</div>`;
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fa-solid fa-search"></i> Cari`;
+        }
+
+        // Cek Dalil View (Fully Active)
+        function renderCekDalil(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-gray-900 border border-emerald-900/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800">
+                            <div class="w-10 h-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold text-white">Cek Kevalidan Dalil</h1>
+                                <p class="text-xs text-gray-400">Verifikasi kutipan ayat, hadis, atau klaim keagamaan</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <textarea id="dalil-query" rows="3" class="w-full bg-gray-950 border border-emerald-900/60 rounded-2xl p-4 text-white text-sm focus:outline-none focus:border-amber-500 placeholder-gray-500 resize-none" placeholder="Masukkan kutipan hadis, klaim hukum, atau dalil yang ingin diverifikasi kevalidannya..."></textarea>
+                            <div class="flex justify-end">
+                                <button onclick="submitCekDalil()" id="dalil-btn" class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold px-6 py-2.5 rounded-xl shadow transition-all flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-shield-check"></i> Periksa Dalil
+                                </button>
+                            </div>
+
+                            <div id="dalil-results" class="space-y-4 pt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function submitCekDalil() {
+            const query = document.getElementById('dalil-query').value.trim();
+            const resultsDiv = document.getElementById('dalil-results');
+            const btn = document.getElementById('dalil-btn');
+
+            if (!query) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memeriksa...`;
+            resultsDiv.innerHTML = `<div class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-4 text-gray-400 text-sm">Sedang melakukan verifikasi status dalil dan rujukan...</div>`;
+
+            try {
+                const prompt = `Analisis dan verifikasi klaim atau dalil berikut: "${query}". Tentukan status kevalidannya (Sahih, Hasan, Dhaif, Palsu/Tidak Ditemukan, atau Valid secara substansi), berikan sumber kitab asalnya, dan catatan penjelasan ilmiahnya.`;
+                const response = await callGeminiAPI(prompt);
+
+                resultsDiv.innerHTML = `
+                    <div class="bg-gray-950 border border-amber-500/30 rounded-2xl p-5 text-gray-200 text-sm space-y-2">
+                        <p class="font-bold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-clipboard-check"></i> Hasil Verifikasi Dalil:</p>
+                        <div class="whitespace-pre-line leading-relaxed">${escapeHtml(response)}</div>
+                    </div>
+                `;
+            } catch (err) {
+                resultsDiv.innerHTML = `<div class="bg-red-950/40 border border-red-800 rounded-2xl p-4 text-red-300 text-sm">Gagal melakukan verifikasi. Silakan coba lagi.</div>`;
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fa-solid fa-shield-check"></i> Periksa Dalil`;
+        }
+
+        // Buat Konten View
+        function renderBuatKonten(container) {
+            container.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-gray-900 border border-emerald-900/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800">
+                            <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold text-white">Pembuat Konten Dakwah</h1>
+                                <p class="text-xs text-gray-400">Hasilkan caption media sosial, artikel, dan naskah dakwah</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Topik atau Tema Konten</label>
+                                <input type="text" id="konten-topik" class="w-full bg-gray-950 border border-emerald-900/60 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 placeholder-gray-500" placeholder="Contoh: Keutamaan bersedekah di subuh hari...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Format Output</label>
+                                <select id="konten-format" class="w-full bg-gray-950 border border-emerald-900/60 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500">
+                                    <option value="Caption Instagram/TikTok">Caption Instagram / TikTok (Singkat & Inspiratif)</option>
+                                    <option value="Artikel Singkat">Artikel Dakwah Singkat</option>
+                                    <option value="Naskah Video 1 Menit">Naskah Video Reels / Short (1 Menit)</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-end">
+                                <button onclick="submitBuatKonten()" id="konten-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-xl shadow transition-all flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> Buat Konten
+                                </button>
+                            </div>
+
+                            <div id="konten-results" class="space-y-4 pt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function submitBuatKonten() {
+            const topik = document.getElementById('konten-topik').value.trim();
+            const format = document.getElementById('konten-format').value;
+            const resultsDiv = document.getElementById('konten-results');
+            const btn = document.getElementById('konten-btn');
+
+            if (!topik) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Menyusun...`;
+            resultsDiv.innerHTML = `<div class="bg-gray-950 border border-emerald-900/40 rounded-2xl p-4 text-gray-400 text-sm">AI sedang merancang ${format} yang santun dan berkualitas...</div>`;
+
+            try {
+                const prompt = `Buatkan ${format} bertema "${topik}". Pastikan bahasanya santun, edukatif, bernilai dakwah yang baik, serta mencakup referensi dalil yang valid jika relevan.`;
+                const response = await callGeminiAPI(prompt);
+
+                resultsDiv.innerHTML = `
+                    <div class="bg-gray-950 border border-blue-500/30 rounded-2xl p-5 text-gray-200 text-sm space-y-3">
+                        <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                            <p class="font-bold text-blue-400 flex items-center gap-1.5"><i class="fa-solid fa-file-lines"></i> Hasil Konten (${format}):</p>
+                            <button onclick="copyContent(this)" class="text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1 rounded-lg border border-gray-700 transition-colors">
+                                <i class="fa-regular fa-copy mr-1"></i> Salin
+                            </button>
+                        </div>
+                        <div id="copy-text-target" class="whitespace-pre-line leading-relaxed">${escapeHtml(response)}</div>
+                    </div>
+                `;
+            } catch (err) {
+                resultsDiv.innerHTML = `<div class="bg-red-950/40 border border-red-800 rounded-2xl p-4 text-red-300 text-sm">Gagal membuat konten. Silakan coba lagi.</div>`;
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Buat Konten`;
+        }
+
+        function copyContent(btn) {
+            const textEl = document.getElementById('copy-text-target');
+            const textArea = document.createElement("textarea");
+            textArea.value = textEl.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400 mr-1"></i> Tersalin!`;
+            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+        }
+
+        // Gemini API Helper with exponential backoff
+        async function callGeminiAPI(userQuery, retries = 3, delay = 1000) {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: DAKWAH_SYSTEM_PROMPT }]
                 }
-            } catch (error) {
-                console.error("Error:", error);
-                return "Mohon maaf, terjadi kendala koneksi ke server AI.";
+            };
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        return candidate.content.parts[0].text;
+                    } else {
+                        throw new Error("Struktur respons tidak valid.");
+                    }
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
             }
         }
 
-        // 1. Handler Tanya AI (Dinamis sesuai input user)
-        async function handleAskAI() {
-            const prompt = document.getElementById('ai-prompt').value.trim();
-            const container = document.getElementById('ai-result-container');
-            const content = document.getElementById('ai-result-content');
-            if (!prompt) {
-                alert('Silakan masukkan pertanyaan terlebih dahulu.');
-                return;
-            }
-            container.classList.remove('hidden');
-            content.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-gold-400"></i> AI sedang menganalisis rujukan terverifikasi...`;
-            
-            const result = await panggilAI(prompt);
-            content.innerHTML = result.replace(/\n/g, '<br>');
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
 
-        // 2. Handler Pencarian Qur'an & Hadis (Dinamis sesuai input user)
-        async function handleSearchQH() {
-            const query = document.getElementById('qh-query').value.trim();
-            const container = document.getElementById('qh-result-container');
-            const content = document.getElementById('qh-result-content');
-            if (!query) {
-                alert('Silakan masukkan kata kunci atau tema.');
-                return;
-            }
-            container.classList.remove('hidden');
-            content.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-islamicgreen-600"></i> Mencari ayat & hadis terkait "${query}"...`;
-
-            const result = await panggilAI(`Carikan ayat Al-Qur'an dan hadis sahih yang berkaitan secara spesifik dengan topik: "${query}"`);
-            content.innerHTML = result.replace(/\n/g, '<br>');
-        }
-
-        // 3. Handler Cek Dalil (Dinamis sesuai input user)
-        async function handleCheckDalil() {
-            const prompt = document.getElementById('dalil-prompt').value.trim();
-            const container = document.getElementById('dalil-result-container');
-            const content = document.getElementById('dalil-result-content');
-            if (!prompt) {
-                alert('Silakan masukkan kutipan yang ingin dicek.');
-                return;
-            }
-            container.classList.remove('hidden');
-            content.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-gold-400"></i> Memeriksa keabsahan dalil...`;
-
-            const result = await panggilAI(`Verifikasi keabsahan dalil, hadis, atau klaim keagamaan berikut: "${prompt}"`);
-            content.innerHTML = result.replace(/\n/g, '<br>');
-        }
-
-        // 4. Handler Pembuat Konten (Dinamis sesuai input user)
-        async function handleMakeContent() {
-            const type = document.getElementById('konten-type').value;
-            const topic = document.getElementById('konten-topic').value.trim() || 'Kebaikan Islam';
-            const container = document.getElementById('konten-result-container');
-            const content = document.getElementById('konten-result-content');
-            
-            container.classList.remove('hidden');
-            content.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-islamicgreen-600"></i> Menyusun draf konten dakwah...`;
-
-            const result = await panggilAI(`Buatkan ${type} dengan topik utama: "${topic}". Buat dengan gaya bahasa yang santun dan edukatif.`);
-            content.innerHTML = result.replace(/\n/g, '<br>');
-        }
+        // Initial load
+        window.onload = function() {
+            navigate('home');
+        };
     </script>
 </body>
 </html>
