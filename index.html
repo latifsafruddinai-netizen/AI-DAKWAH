@@ -662,6 +662,30 @@
         window.onload = function() {
             navigate('home');
         };
+async function panggilAI(promptText) {
+    const apiKey = "AQ.Ab8RN6LVnGlKjE-yH1L8pa3u0w_297HUYN0ZFZSAW3dbr_HzIg";
+    const targetUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=` + apiKey;
+    const proxyUrl = `https://api.allorigins.win/raw?url=` + encodeURIComponent(targetUrl);
+    
+    try {
+        const response = await fetch(proxyUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{ role: "user", parts: [{ text: promptText }] }]
+            })
+        });
+        const data = await response.json();
+        if (data.candidates && data.candidates[0].content) {
+            return data.candidates[0].content.parts[0].text;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+    
+    return "Maaf, AI belum merespons. Pastikan koneksi aktif.";
+}
+
     </script>
 </body>
 </html>
